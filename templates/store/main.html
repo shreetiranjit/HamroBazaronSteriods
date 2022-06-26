@@ -9,11 +9,16 @@
     <title>HamroBazaronSteriods</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
+
     <link rel="stylesheet" type= "text/css" href="{% static 'css/store.css' %}">
     <link rel="stylesheet" type= "text/css" href="{% static 'css/cart.css' %}">
     <link rel="stylesheet" type= "text/css" href="{% static 'css/checkout.css' %}">
     <link rel="stylesheet" type= "text/css" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" type= "text/css" href="{% static 'css/sell.css' %}">
+
+    <script src="{% static 'js/main.js' %}"></script>
 </head>
+
 <body>
    {% include 'Navbar/navbar.html'%}
     <div class="container">
@@ -26,5 +31,6 @@
     </div>
     <!-- {% include 'Footer/footer.html'%} -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>   
+<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
 </body>
 </html>

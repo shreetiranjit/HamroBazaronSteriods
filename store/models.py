@@ -22,6 +22,16 @@ class Customer(models.Model):
     def __str__(self): 
         return self.name 
 
+class Sell(models.Model):
+    itemname = models.CharField(max_length=100, null= False)
+    contactnumber = models.CharField(max_length=10, null= False)
+    address = models.CharField(max_length=100, null= False)
+    description = models.CharField(max_length=1000, null= False)
+    itemimage = models.FileField(upload_to= "static/images/items", default= "default.jpg")
+    
+    class Meta: 
+        db_table = "item"
+
 
 class Product(models.Model): 
     name = models.CharField(max_length=200)

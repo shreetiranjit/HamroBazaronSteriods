@@ -31,3 +31,8 @@ def checkout(request):
     context = {'items':items , 'order':order}
     
     return render(request, 'store/checkout.html',context)
+
+# sell
+def sell(request): 
+    context = {}
+    return render(request, 'store/sell.html',context)
