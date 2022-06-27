@@ -1,1 +1,2 @@
-var user = '{{request.user}}'
+
+
