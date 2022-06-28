@@ -1,5 +1,7 @@
+import imp
 from django.shortcuts import render
 from .models import *
+from login.models import *
 from django.http import JsonResponse
 import json
 
@@ -8,27 +10,26 @@ def store(request):
     products = Product.objects.all()
     context = {'products':products}
     return render(request, 'store/store.html',context)
-
+    
+from django.contrib.auth.decorators import login_required
+@login_required(login_url= "/loginsignup")
 def cart(request):
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order , created = Order.objects.get_or_create(customer = customer, complete = False) 
-        items = order.orderitem_set.all()
-    else: 
-        items = []
-        order = {'get_cart_total' :0, 'get_cart_items':0}
+    customer = request.user
+    print(customer)
+    order , created = Order.objects.get_or_create(customer = customer, complete = False) 
+    items = order.orderitem_set.all()
+    
 
     context = {'items':items , 'order':order}
     return render(request, 'store/cart.html',context) 
 
+
+@login_required(login_url= "/loginsignup")
 def checkout(request): 
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order , created = Order.objects.get_or_create(customer = customer, complete = False) 
-        items = order.orderitem_set.all()
-    else: 
-        items = []
-        order = {'get_cart_total' :0, 'get_cart_items':0}
+    customer = request.user
+    order , created = Order.objects.get_or_create(customer = customer, complete = False) 
+    items = order.orderitem_set.all()
+    
 
     context = {'items':items , 'order':order}
     
@@ -40,7 +41,7 @@ def updateItem(request):
     action = data['action']
     print('Action:', action)
     print('productId:', productId)
-    customer = request.user.customer
+    customer = request.user
     product = Product.objects.get(id = productId)
     order , created = Order.objects.get_or_create(customer = customer, complete = False) 
     orderItem, created = OrderItem.objects.get_or_create(order = order , product= product)
