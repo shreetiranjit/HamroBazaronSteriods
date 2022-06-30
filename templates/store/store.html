@@ -1,10 +1,41 @@
 {% extends 'store/main.html' %}
 {% load static %} 
 {% block content %}
-<div class="row">
+
+
+<header id = 'header' class  = 'vh-100'>
+  <img src= "{% static 'images/header-backgrounf.jpg'%}" alt="">
+</header>
+<section id = "collection" class = "py-5">
+  <div class = "container">
+      <div class = "row g-0">
+        {% for product in products %}
+          <div class = "collection-list mt-4 row gx-0 gy-3">
+              <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best" style="box-shadow: 0 4px 8px 0 rgba(0, 26, 6, 0.2);">
+                  <div class = "collection-img position-relative">
+                    <img src = {{product.imageURL}} class = "w-100">
+                  </div>
+                  <div class = "text-center">
+                      
+                      <div class = "text-center">
+                        <p class = "text-capitalize mt-3 mb-1">{{product.name}}</p>
+                        <span class = "fw-bold d-block">Rs{{product.price }}</span>
+                        <button data-product ={{product.id}} data-action = "add" class = "btn btn-primary mt-3" style="border-radius: 20px ;background-color: rgb(3, 48, 3)">Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+              {% endfor %}
+
+             
+              
+          </div>
+      </div>
+  </div>
+</section>
+<!-- <div class="row">
   {% for product in products %}
   <div class="col-lg-4">
-    <img class="thumbnail" src="{{product.imageURL}}}" alt="" />
+    <img class="thumbnail" src="{{product.imageURL}}" alt="" />
     <div class="box-element product">
       <h6><strong>{{product.name}}</strong></h6>
       <hr />
@@ -17,5 +48,5 @@
     </div>
   </div>
   {% endfor %}
-</div>
+</div> -->
 {% endblock content %}
