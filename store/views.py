@@ -1,4 +1,4 @@
-import imp
+
 from django.shortcuts import render
 from .models import *
 from login.models import *
@@ -6,34 +6,44 @@ from django.http import JsonResponse
 import json
 
 # Create your views here.
+
 def store(request): 
+    if request.user.is_authenticated:
+        customer = request.user
+        order , created = Order.objects.get_or_create(customer = customer, complete = False) 
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+
+
     products = Product.objects.all()
-    context = {'products':products}
+    context = {'products':products, 'cartItems': cartItems}
     return render(request, 'store/store.html',context)
-    
-from django.contrib.auth.decorators import login_required
+
+from django.contrib.auth.decorators import login_required  
 @login_required(login_url= "/loginsignup")
 def cart(request):
-    customer = request.user
-    print(customer)
-    order , created = Order.objects.get_or_create(customer = customer, complete = False) 
-    items = order.orderitem_set.all()
+    if request.user.is_authenticated:
+        customer = request.user
+        print(customer)
+        order , created = Order.objects.get_or_create(customer = customer, complete = False) 
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
     
 
-    context = {'items':items , 'order':order}
+    context = {'items':items , 'order':order, 'cartItems': cartItems}
     return render(request, 'store/cart.html',context) 
 
 
 @login_required(login_url= "/loginsignup")
 def checkout(request): 
-    customer = request.user
-    order , created = Order.objects.get_or_create(customer = customer, complete = False) 
-    items = order.orderitem_set.all()
-    
+    if request.user.is_authenticated:
+        customer = request.user
+        order , created = Order.objects.get_or_create(customer = customer, complete = False) 
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
 
-    context = {'items':items , 'order':order}
-    
-    return render(request, 'store/checkout.html',context)
+    context = {'items':items , 'order':order,'cartItems': cartItems}   
+    return render(request, 'store/cart.html',context)
 
 def updateItem(request):
     data = json.loads(request.body)
@@ -46,15 +56,7 @@ def updateItem(request):
     order , created = Order.objects.get_or_create(customer = customer, complete = False) 
     orderItem, created = OrderItem.objects.get_or_create(order = order , product= product)
 
-    if action == "add": 
-        orderItem.one_quantity = (orderItem.one_quantity + 1)
-    elif action == "remove":
-        orderItem.one_quantity = (orderItem.one_quantity - 1)
-    
     orderItem.save()
-
-    if orderItem.one_quantity <=0 :
-        orderItem.delete()
 
     return JsonResponse("Item was added" , safe = False)
 

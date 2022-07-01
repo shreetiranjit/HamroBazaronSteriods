@@ -12,7 +12,7 @@
           <a href="/loginsignup" class="btn btn-success">Signup</a>
           <button type = "button" class = "btn position-relative">
             <a href="{% url 'cart' %}" class = "fa fa-shopping-cart"></a>
-            <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary">5</span>
+            <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary">{{cartItems}}</span>
         </button>
           <button type = "button" class = "btn position-relative">
               <i class = "fa fa-search"></i>
