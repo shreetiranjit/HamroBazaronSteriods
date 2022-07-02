@@ -2,33 +2,79 @@
 {% load static %}
 
  {% block content %}
+
+
+ <section class="h-100 h-custom mt-4" style="background-color: #01200f">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <div
+          class="card card-registration card-registration-2"
+          style="border-radius: 15px"
+        >
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-lg-8">
+                <div class="p-5">
+                  
+                  <div class="form-group">
+                    <label>Item Name</label>
+                    <input type="text" name="itemname" class="form-control" id="itemname" placeholder="Enter item name" required="required">
+                  </div>
+                  <div class="form-group">
+                    <label  required="required">Email address</label>
+                    <input type="email" name="email" class="form-control" id="Email1" aria-describedby="emailHelp" placeholder=" Email">
+                  </div>
+                  <div class="form-group">
+                    <label >Item Description</label>
+                    <textarea placeholder = "Describe the condtion of the respective item"  name="description" class="form-control" id="Description"  placeholder="Description">
+                     </textarea>
+                  </div>
+                  <div class="form-group">
+                    <label  required="required">Wallet Address</label>
+                    <input type="text" name="walletaddress" class="form-control" id="walletaddress" placeholder="Wallet Address">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1" required="required">Pickup Address</label>
+                    <input type="text" name="pickupaddress" class="form-control" id="pickupaddress" placeholder="Pick up Address">
+                  </div>
+                  <hr>
+                  <div class="form-group mt-3">
+                    <label class="mr-2">Upload your CV:</label>
+                    <input type="file" name="file">
+                  </div>
+                  <hr>
+                  <button type="submit" class="btn btn-success">Submit</button>
+
+                  
+
+                  <hr class="my-4" />
+
+                  <div class="pt-5">
+                    <h6 class="mb-0">
+                      <a href="{% url 'store' %}" class="text-body"
+                        ><i class="fas fa-long-arrow-alt-left me-2"></i>Back to
+                        shop</a
+                      >
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 bg-grey">
+                <div class="p-5">
+                  <h3 class="fw-bold mb-5 mt-2 pt-1">Image Preview</h3>
+  
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
  
-   <!-- <div class="col-md-6 offset-md-3 mt-5">
-     
-       <div class="form-group">
-         <label for="exampleInputName">Item Name</label>
-         <input type="text" name="itemname" class="form-control" id="itemname" placeholder="Enter item name" required="required">
-       </div>
-       <div class="form-group">
-         <label for="exampleInputEmail1" required="required">Email address</label>
-         <input type="email" name="email" class="form-control" id="Email1" aria-describedby="emailHelp" placeholder=" Email">
-       </div>
-       <div class="form-group">
-         <label for="exampleFormControlSelect1">Description</label>
-         <textarea name="description" class="form-control" id="Description"  placeholder="Description">
-          </textarea>
-
-
-         
-       </div>
-       <hr>
-       <div class="form-group mt-3">
-         <label class="mr-2">Upload your CV:</label>
-         <input type="file" name="file">
-       </div>
-       <hr>
-       <button type="submit" class="btn btn-primary">Submit</button>
- </div>  -->
  
    
 
