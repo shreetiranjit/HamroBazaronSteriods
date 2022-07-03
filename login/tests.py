@@ -8,19 +8,16 @@ from login.views import *
 
 class TestUrls(SimpleTestCase):
     def test_login_url(self):    
-        url = reverse(login)
+        url = reverse(registerlogin)
         print(url)
-        self.assertEquals(resolve(url).func , login)
+        self.assertEquals(resolve(url).func , registerlogin)
 
     def test_register_url(self):
-        url = reverse(register)
+        url = reverse(registerlogin)
         print(url)
-        self.assertEquals(resolve(url).func , register)
+        self.assertEquals(resolve(url).func , registerlogin)
 
 
-    def test_logout_url(self):
-        url = reverse(logout)
-        print(url)
-        self.assertEquals(resolve(url).func , logout)
+    
 
 
