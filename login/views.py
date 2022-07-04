@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User 
-from django.contrib.auth import authenticate, login 
+from django.contrib.auth import authenticate, login , logout
+from django.contrib.auth.decorators import login_required
+
+
 
 
 # Create your views here.
@@ -22,13 +25,10 @@ def registerlogin(request):
             print(request.method)
             if user is not None: 
                 login(request, user) 
-                return redirect('') 
+                return redirect('/store') 
             else: 
                 return redirect('/loginsignup')
     
     else: 
         return render(request, "login/login.html")
 
-        
-
-    

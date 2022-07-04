@@ -4,6 +4,8 @@ from .models import *
 from login.models import *
 from django.http import JsonResponse
 import json
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 # Create your views here.
 
@@ -45,6 +47,8 @@ def checkout(request):
     context = {'items':items , 'order':order,'cartItems': cartItems}   
     return render(request, 'store/cart.html',context)
 
+@login_required(login_url= "/loginsignup")
+
 def updateItem(request):
     data = json.loads(request.body)
     productId = data['productId']
@@ -63,6 +67,11 @@ def updateItem(request):
 
 
 # sell
+@login_required(login_url= "/loginsignup")
+
 def sell(request): 
     context = {}
     return render(request, 'store/sell.html',context)
+@login_required(login_url='/loginsignup')
+def fn_logout():
+    logout()
