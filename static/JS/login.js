@@ -37,8 +37,7 @@ function signUp(){
 	}
 	else {
 		alert("Successfully signed up");
-
-		return true;
+		location.href = "/" ; 
 	}
 }
 

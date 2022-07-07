@@ -32,3 +32,8 @@ class TestUrls(SimpleTestCase):
         print(url)
         self.assertEquals(resolve(url).func , sell)
 
+
+
+class testViews(TestCase): 
+    def test_index(self): 
+        user  = User.objects.create

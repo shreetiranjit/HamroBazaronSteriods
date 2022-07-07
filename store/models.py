@@ -1,4 +1,6 @@
+from distutils.command.upload import upload
 from email.headerregistry import Address
+from email.policy import default
 from unittest import TextTestRunner
 from django.db import models
 from django.contrib.auth.models import User
@@ -20,19 +22,25 @@ class Sell(models.Model):
 
 class Product(models.Model): 
     name = models.CharField(max_length=200)
-    price = models.FloatField()
-    physical = models.BooleanField(default=False, null =True, blank = True)
-    image = models.ImageField(null = True, blank = True)
+    # physical = models.BooleanField(default=False, null =True, blank = True)
+    image = models.ImageField(upload_to = "static/images/items" , default="default.jpg")
+    listed_by = models.ForeignKey(User, null=False,  on_delete = models.CASCADE)
+    wallet_address = models.CharField(max_length= 42 , null = True, default="")
+    pickup_address = models.CharField(max_length= 200, null = False, default="")
+    description = models.CharField(max_length= 200,null= False , default= "")
     def __str__(self):
         return self.name
 
-    @property 
-    def foo(self):
-        try:
-            url = self.image.url
-        except:
-            url= ''
-        return url
+    def lister_mail(self):
+        return (self.listed_by.email)
+
+    # @property 
+    # def foo(self):
+    #     try:
+    #         url = self.image.url
+    #     except:
+    #         url= ''
+    #     return url
 
 class Order(models.Model):
     customer = models.ForeignKey(User, on_delete = models.SET_NULL ,null = True , blank = True)

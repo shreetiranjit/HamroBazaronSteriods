@@ -16,7 +16,7 @@ def registerlogin(request):
                 email = request.POST['email'],
                 password = request.POST['password'],
             )
-            return redirect ('/loginsignup')
+            return redirect ('/')
             print(request) 
  
         elif 'username' in request.POST:
@@ -27,7 +27,7 @@ def registerlogin(request):
                 login(request, user) 
                 return redirect('/store') 
             else: 
-                return redirect('/loginsignup')
+                return redirect('/')
     
     else: 
         return render(request, "login/login.html")

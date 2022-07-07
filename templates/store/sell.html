@@ -5,7 +5,8 @@
 
 
  <section class="h-100 h-custom mt-4" style="background-color: #01200f">
-  <div class="container py-5 h-100">
+  <form  action = "", method = "POST"  enctype = "multipart/form-data" class="container py-5 h-100">
+    {% csrf_token %}
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12">
         <div
@@ -40,11 +41,11 @@
                   </div>
                   <hr>
                   <div class="form-group mt-3">
-                    <label class="mr-2">Upload your CV:</label>
-                    <input type="file" name="file">
+                    <label class="mr-2">Upload Item's image</label>
+                    <input type="file" name="image">
                   </div>
                   <hr>
-                  <button type="submit" class="btn btn-success">Submit</button>
+                  <button type="submit" value="save"  class="btn btn-success">Submit</button>
 
                   
 
@@ -53,7 +54,7 @@
                   <div class="pt-5">
                     <h6 class="mb-0">
                       <a href="{% url 'store' %}" class="text-body"
-                        ><i class="fas fa-long-arrow-alt-left me-2"></i>Back to
+                        ><i class="fa fa-long-arrow-alt-left me-2"></i>Back to
                         shop</a
                       >
                     </h6>
@@ -72,7 +73,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </form>
 </section>
  
  
