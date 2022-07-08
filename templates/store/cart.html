@@ -44,15 +44,11 @@
                         type="number"
                         class="form-control form-control-sm"
                       />
-
-                      <button class="btn btn-link px-2">
-                        <i class="fa fa-minus"></i>
-                      </button>
                     </div>
                     
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a href="#!" class="text-muted">
-                        <i data-product = {{item.product.id}} data-action = "remove" class="fa fa-times update-cart"> </i>
+                      <a href="{% url 'deleteCartItem' item.product.id  %}" class="text-muted">
+                        <i data-product = {{item.product.id}}  class="fa fa-times update-cart"> </i>
                       </a>
                     </div>
                   </div>
@@ -79,22 +75,20 @@
                     <h5 class="text-uppercase">{{order.get_cart_items}} Items</h5>
                   </div>
 
-                  <h5 class="text-uppercase mb-3">Shipping</h5>
+                  <h5 class="text-uppercase mb-3">Choose which day you want to pick up.</h5>
 
                   <div class="mb-4 pb-2">
                     <select class="select">
-                      <option value="1">Standard-Delivery</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                      <option value="4">Four</option>
+                      <option value="1">Same Day</option>
+                      <option value="2">Second Day</option>
+                      <option value="3">Third Day</option>
+                      
                     </select>
                   </div>
 
                   <hr class="my-4" />
 
-                  <div class="d-flex justify-content-between mb-5">
-                    <h5 class="text-uppercase">Total price</h5>
-                  </div>
+ 
 
                   <button
                     type="button"

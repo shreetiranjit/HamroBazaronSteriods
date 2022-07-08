@@ -1,10 +1,11 @@
 
+from audioop import reverse
 from unicodedata import name
 from django.shortcuts import redirect, render
 from pkg_resources import require
 from .models import *
 from login.models import *
-from django.http import JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse
 import json
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -67,6 +68,11 @@ def updateItem(request):
 
     return JsonResponse("Item was added" , safe = False)
 
+@login_required(login_url= "/")
+def delete_cartitem(request, product_id):
+    item1= OrderItem.objects.get( product_id = product_id )
+    item1.delete()
+    return redirect("/cart")
 
 
 # sell
@@ -82,7 +88,6 @@ def sell(request):
             description = request.POST['description'],
             wallet_address =  request.POST['walletaddress'],
             pickup_address = request.POST['pickupaddress'],
-
         )
         pro.save()
         return redirect('/sell')
