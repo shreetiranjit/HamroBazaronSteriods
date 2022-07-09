@@ -1,15 +1,16 @@
 
 from audioop import reverse
+from distutils.log import error
+import json
 from unicodedata import name
 from django.shortcuts import redirect, render
 from pkg_resources import require
 from .models import *
 from login.models import *
-from django.http import HttpResponseRedirect, JsonResponse
-import json
+from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-
+from django.core.files.storage import FileSystemStorage
 # Create your views here.
 
 @login_required(login_url= "/")
@@ -21,9 +22,8 @@ def store(request):
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
 
-
         prods = Product.objects.exclude(listed_by=request.user)
-        context = {'products':prods}
+        context = {'products':prods ,'cartItems': cartItems}
         return render(request, 'store/store.html',context)
 
 from django.contrib.auth.decorators import login_required  
@@ -44,7 +44,7 @@ def cart(request):
 def checkout(request): 
     if request.user.is_authenticated:
         customer = request.user
-        order , created = Order.objects.get_or_create(customer = customer, complete = False) 
+        order ,created = Order.objects.get_or_create(customer = customer, complete = False) 
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
 
@@ -79,18 +79,19 @@ def delete_cartitem(request, product_id):
 @login_required(login_url= "/")
 
 def sell(request): 
-
-    if request.method == "POST":
- 
+    
+    if request.method == "POST" :
         pro = Product(
             name = request.POST['itemname'],
             listed_by = request.user , 
             description = request.POST['description'],
             wallet_address =  request.POST['walletaddress'],
             pickup_address = request.POST['pickupaddress'],
+            image = request.FILES.get("image"),
         )
+        print(request.FILES['image'])
         pro.save()
-        return redirect('/sell')
+        return redirect('/sell', )
     else:
         return render(request, 'store/sell.html')
 
