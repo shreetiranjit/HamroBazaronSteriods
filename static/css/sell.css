@@ -1,11 +1,11 @@
-/* h1 {
-    font-size: 15px;
-    margin-top: 5px;
-  }
-  
-  img {
-  height: 60px;
-  }
-#description{
-    
-} */
+.preview{
+    border: 1px solid black;
+}
+.preview > img {
+  width: 100%;
+  height: 100%;
+}
+#filePreview{
+  height: fit-content;
+  width: fit-content;
+}

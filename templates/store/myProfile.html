@@ -1,0 +1,52 @@
+{% extends 'store/main.html' %}
+{% load static %} 
+{% block content %}
+
+  
+<main id="main">
+
+    <body>
+    
+    <div class="title bg-color-intro intro-effect-fadeout">
+       <h1 >{{request.user.username}}</h1>
+
+    </div>
+
+     <section id="collection" class="py-5">
+        
+        <h2 class="title"> ITEMS YOU LISTED</h1>
+        <div class="container">
+          <div class="shop-cards">
+
+            <div class="row">
+              {% for product in products %}
+              <div class="col-md-4">
+                <div class="block1 product no-border z-depth-2-top z-depth-2--hover">
+                  
+                  <div class="block-image1">
+                    <a href="">
+                  
+                      <img src="/{{ product.image }}" />
+                      
+                    </a>
+                  </div>
+                  <div class="block-body1 text-center">
+                    <h3 class="heading ">
+                      <a class="heading1" href="#"> {{product.name}} </a>
+                    </h3>
+                    <button class = "delete">
+                        Delete <i class="fa-solid fa-trash"></i>
+                    </button>
+                    <button class = "edit">
+                        Edit <i class="fa-solid fa-pen"> </i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section> 
+
+{% endblock content %}

@@ -1,6 +1,7 @@
 
 from audioop import reverse
 from distutils.log import error
+from itertools import product
 import json
 from unicodedata import name
 from django.shortcuts import redirect, render
@@ -21,7 +22,6 @@ def store(request):
         order , created = Order.objects.get_or_create(customer = customer, complete = False) 
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
-
         prods = Product.objects.exclude(listed_by=request.user)
         context = {'products':prods ,'cartItems': cartItems}
         return render(request, 'store/store.html',context)
@@ -90,10 +90,19 @@ def sell(request):
             image = request.FILES.get("image"),
         )
         print(request.FILES['image'])
+        
         pro.save()
         return redirect('/sell', )
     else:
         return render(request, 'store/sell.html')
+
+@login_required(login_url='/')
+def myprofile(request): 
+    if request.user.is_authenticated:
+        productlist = Product.objects.filter(listed_by = request.user)
+        context = {'products':productlist }
+        print(context)
+        return render(request, 'store/myProfile.html', context)
 
 @login_required(login_url='/')
 def fn_logout(request):

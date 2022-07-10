@@ -9,21 +9,11 @@ from django.forms import CharField, DateTimeField
 # Create your models here.
 
 
-# class Sell(models.Model):
-#     itemname = models.CharField(max_length=100, null= False)
-#     contactnumber = models.CharField(max_length=10, null= False)
-#     address = models.CharField(max_length=100, null= False)
-#     description = models.CharField(max_length=1000, null= False)
-#     itemimage = models.FileField(upload_to= "static/images/items", default= "default.jpg")
-    
-#     class Meta: 
-#         db_table = "item"
 
 
 class Product(models.Model): 
     name = models.CharField(max_length=200)
-    # physical = models.BooleanField(default=False, null =True, blank = True)
-    image = models.ImageField(upload_to = "" , default="default.jpg")
+    image = models.ImageField(upload_to = "static/images/items" , default="default.jpg")
     listed_by = models.ForeignKey(User, null=False,  on_delete = models.CASCADE)
     wallet_address = models.CharField(max_length= 42 , null = True, default="")
     pickup_address = models.CharField(max_length= 200, null = False, default="")
