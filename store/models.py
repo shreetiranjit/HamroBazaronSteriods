@@ -7,10 +7,6 @@ from django.contrib.auth.models import User
 from django.forms import CharField, DateTimeField
 
 # Create your models here.
-
-
-
-
 class Product(models.Model): 
     name = models.CharField(max_length=200)
     image = models.ImageField(upload_to = "static/images/items" , default="default.jpg")
@@ -23,8 +19,6 @@ class Product(models.Model):
 
     def lister_mail(self):
         return (self.listed_by.email)
-
-    
 
 class Order(models.Model):
     customer = models.ForeignKey(User, on_delete = models.SET_NULL ,null = True , blank = True)
@@ -72,10 +66,6 @@ class ShippingAddress(models.Model):
 
     def __str__(self):
         return self.address 
-
-
-   
-
 
 
 

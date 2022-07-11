@@ -10,5 +10,8 @@ urlpatterns = [
     path('myprofile/', views.myprofile , name = "myprofile"),
     path('logout/', views.fn_logout, name='logout'),
     path('deletecartitem/<int:product_id>', views.delete_cartitem, name = "deleteCartItem"),
+    path('deletelisteditem/<int:id>', views.delete_listeditem, name = "deleteListedItem"),
+    path('myprofile/editlisteditem/<int:id>', views.edit_listeditem, name = "editListedItem"),
+    path('myprofile/editlisteditem/myprofile/updatelisteditem/<int:id>', views.update_listeditem, name = "updateListedItem"),
 
 ]

@@ -1,30 +1,58 @@
 
-
 body {
 	background-color: #fff;
-	-webkit-font-smoothing: antialiased;
-    padding-top: 100px;
+    padding-top: 75px;
 }
+.header {
+    padding: 30px 0;
+    background: #74a47b;
+    border-top: 10px solid #778492;
+  }
+  
+.header .btn {
+    font-weight: bold;
+}
+  
+.header .profile-image {
+    margin-right: 30px;
+}
+  
+.header .profile-content .name {
+    color: #263728;
+    font-size: 38px;
+    margin-bottom: 5px;
+    margin-top: 30px;
+}
+  
+.header .profile-content .desc {
+    color:  #304732;
+    font-family: "Lato", arial, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  
+ 
 
-
-.title{
+ .title{
     font-family: 'Oxygen', sans-serif;
 	font-weight: 800;
 	font-size: 1.5em;
-	text-align: center;
-	letter-spacing: 0.2em;
+	 text-align: center; 
+	letter-spacing: 0.1em;
+     height:20px; 
 }
 
+.delete , .edit {
+    background: transparent;
 
-.title h1 {
-	font-family: 'Oxygen', sans-serif;
-	font-weight: 400;
-	font-size: 1.7em;
-	text-align: center;
-	letter-spacing: 0.2em;
-	color: #2A2A2A;
-	line-height: 1.5em;
-	margin-top: 27px;
+}
+
+.d {
+    color: #004501;
+
+
 }
 
 .bg-color-intro {
@@ -34,36 +62,15 @@ body {
 	margin-bottom: 20px;
 }
 
-
-
-
-
-
-
-
 .shop-cards {
     position: relative
 }
-
-
-
-
 
 .product-description1 {
     color: #004501;
     font-size: .875rem;
     line-height: 1.6
 }
-
-/* .product-long-description {
-    max-width: 360px;
-    margin: 0 auto
-} */
-
-
-
-
-
 
 .block1 {
     padding-top: 15px;
@@ -87,8 +94,15 @@ body {
 	border-color: rgb(1, 36, 1);
 }
 .heading1{
-    color: rgb(2, 103, 2);
+    margin: 0 0 6px;
+    padding: 0;
+    
+    
+    font-weight: 600;
+    color: rgb(0, 57, 36);
+    line-height: 1.46;
 }
+
 .delete{
     color: red;
     border: none;
@@ -183,10 +197,8 @@ body {
 .text-capitalize {
     text-transform: capitalize !important;
 }
-.heading-5 {
-    font-size: 1.125rem !important;
-}
-.heading {
+
+.heading1 {
     margin: 0 0 6px;
     padding: 0;
     text-transform: none;
@@ -196,4 +208,4 @@ body {
     line-height: 1.46;
 }
 
-
+ 

@@ -8,6 +8,7 @@ class signup(models.Model):
     name = models.CharField(max_length=32, null = False)
     email = models.EmailField(max_length=80 , null =False)
     password = models.CharField(max_length=32, null = False)
+    cpassword = models.CharField(max_length=32, null = False, default= "null")
 
 
 def __str__(self):

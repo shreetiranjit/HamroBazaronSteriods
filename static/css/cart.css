@@ -16,9 +16,7 @@
   top: 13px;
 }
 
-.bg-grey {
-  background-color: #eae8e8;
-}
+ 
 
 @media (min-width: 992px) {
   .card-registration-2 .bg-grey {

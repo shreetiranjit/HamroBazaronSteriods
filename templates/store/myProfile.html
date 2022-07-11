@@ -6,11 +6,33 @@
 <main id="main">
 
     <body>
-    
-    <div class="title bg-color-intro intro-effect-fadeout">
-       <h1 >{{request.user.username}}</h1>
+      <header class="header">
+        <div class="container">     
+	        <div class="row align-items-center">
+			    <div class="col">      
+                {% load static %}   
+		            <img class="profile-image img-fluid float-start rounded-circle" src="{% static 'images/stewie.png'%}" alt="profile image" />
+		            <div class="profile-content">
+		                <h1 class="name">{{request.user.username}}
+                    </h1>
+		                <h2 class="desc">{{request.user.email}}
 
-    </div>
+                    </h2>   
+		                
+		            </div>
+			    </div>
+	            
+	        </div>        
+        </div>
+    </header>
+    
+    <!-- <div class="title bg-color-intro intro-effect-fadeout">
+       <h1 >{{request.user.username}}
+        
+       </h1>
+       
+
+    </div> -->
 
      <section id="collection" class="py-5">
         
@@ -35,10 +57,16 @@
                       <a class="heading1" href="#"> {{product.name}} </a>
                     </h3>
                     <button class = "delete">
-                        Delete <i class="fa-solid fa-trash"></i>
+                      <a href="{% url 'deleteListedItem' product.id %}" >
+                        <i class="d fa fa-trash"></i>                      
+                      </a>
+                         
                     </button>
                     <button class = "edit">
-                        Edit <i class="fa-solid fa-pen"> </i>
+                      <a href="editlisteditem/{{product.id}}" >               
+                        <i class="d fa fa-edit"></i>
+                      </a>
+                         
                     </button>
                   </div>
                 </div>

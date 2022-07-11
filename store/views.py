@@ -74,7 +74,36 @@ def delete_cartitem(request, product_id):
     item1.delete()
     return redirect("/cart")
 
+@login_required(login_url= "/")
+def delete_listeditem(request, id):
+    
+    item2= Product.objects.get( id = id )
+    item2.delete()
+    return redirect("/myprofile")
 
+@login_required(login_url= "/")
+def edit_listeditem(request, id):
+    print(id)
+    item2= Product.objects.get( id = id )
+    
+    return render(request, "store/edititem.html" , {"item2":item2})
+
+@login_required(login_url= "/")
+def update_listeditem(request, id):
+    item2= Product.objects.get( id = id )
+    if request.method == "POST" and instance == item2 :
+        pro = Product(
+            name = request.POST['itemname'],
+            listed_by = request.user , 
+            description = request.POST['description'],
+            wallet_address =  request.POST['walletaddress'],
+            pickup_address = request.POST['pickupaddress'],
+            image = request.FILES.get("image"),  
+        ) 
+
+
+        pro.save()
+        return redirect("/myprofile")
 # sell
 @login_required(login_url= "/")
 

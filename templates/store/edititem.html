@@ -4,7 +4,7 @@
 
 <section class="h-100 h-custom mt-4" style="background-color: #01200f">
   <form
-    action=""
+    action="myprofile/updatelisteditem/{{item2.id}}"
     ,
     method="POST"
     enctype="multipart/form-data"
@@ -30,7 +30,7 @@
                       id="itemname"
                       placeholder="Enter item name"
                       required="required"
-                      
+                      value="{{item2.name}}"
                     />
                   </div>
                   <div class="form-group">
@@ -42,6 +42,7 @@
                       id="Email1"
                       aria-describedby="emailHelp"
                       placeholder=" Email"
+                      value="{{item2.listed_by.email}}"
                     />
                   </div>
                   <div class="form-group">
@@ -52,6 +53,7 @@
                       class="form-control"
                       id="Description"
                       placeholder="Description"
+                      value="{{item2.description}}"
                     >
                     </textarea>
                   </div>
@@ -63,6 +65,7 @@
                       class="form-control"
                       id="walletaddress"
                       placeholder="Wallet Address"
+                      value="{{item2.wallet_address}}"
                     />
                   </div>
                   <div class="form-group">
@@ -75,6 +78,7 @@
                       class="form-control"
                       id="pickupaddress"
                       placeholder="Pick up Address"
+                      value="{{item2.pickup_address}}"
                     />
                   </div>
                   <hr />
@@ -83,6 +87,7 @@
                     <input
                       type="file"
                       name="image"
+                      value="{{item2.image}}"
                       id="fileip"
                       accept="/image/*"
                       onchange="showPreview(event);"
@@ -90,7 +95,10 @@
                   </div>
                   <hr />
                   <button type="submit" value="save" class="btn btn-success">
-                    Submit
+                    <a href="{% url 'myprofile'  %}">
+                    
+                  </a>
+                  Update
                   </button>
 
                   <hr class="my-4" />
@@ -107,7 +115,7 @@
               </div>
               <div class="preview col-lg-4 pt-5">
                   <div class="row-lg-4">
-                  <img src="" alt="" id="filePreview" />
+                  <img src="/{{item2.image}}" alt="" id="filePreview" />
                 </div>
               </div>
             </div>

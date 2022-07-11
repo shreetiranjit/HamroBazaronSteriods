@@ -1,7 +1,15 @@
-.navbar{
-    -webkit-box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.1);
-            box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.1);
-    background-color: rgb(160, 255, 160);
+#navvbarr{
+    background-color: rgb(24, 188, 24);
+}
+.u-button{
+    border: none;
+    background: transparent;
+}
+.username, .logout ,.nav-cart ,.total{
+    border: none;
+    background: transparent;
+    text-decoration: none;
+    color: rgb(0, 123, 64);
 }
 .navbar-brand img{
     width: 30px;
@@ -10,8 +18,11 @@
     letter-spacing: 2px;
     font-family: var(--lg-font);
 }
+.nav-link:active{
+    color: rgb(0, 123, 64);
+}
 .nav-link:hover{
-    color: var(--pink)!important;
+    color: rgb(17, 255, 0);
 }
 .nav-item{
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);

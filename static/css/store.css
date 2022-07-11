@@ -11,15 +11,7 @@
     color: #2b2b2c
 }
 
-.color-switch a {
-    display: inline-block;
-    float: none !important;
-    width: 16px;
-    height: 16px;
-    margin-right: 3px;
-    margin-bottom: 0;
-    border-radius: .25rem
-}
+
 
 
 .product-description {

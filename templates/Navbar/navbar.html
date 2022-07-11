@@ -1,27 +1,28 @@
 {% load static %}
-<nav class = "navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
+
+<nav class = "navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top" id = "navvbarr">
   <div class = "container">
       <a class = "navbar-brand d-flex justify-content-between align-items-center order-lg-0" href = "index.html">
           
           <span class = "text-uppercase fw-lighter ms-2">Addlogo</span>
       </a>
 
-      <div class = "order-lg-2 nav-btns">
+      <div class = "order-lg-2 ">
           {% if request.user.is_authenticated %}
-          <button type = "button">
-          <a href="{% url 'myprofile'%}">
+          <button class= "u-button">
+          <a class="username" href="{% url 'myprofile'%}">
             <i class="fa fa-user"></i>
             {{request.user.username}}
         </a>
           </button>
-          <a href="/logout">Logout</a>
+          <a class= "logout" href="/logout">Logout</a>
           {% else %}
           <a href="/loginsignup" class="btn btn-success">Login</a>
           <a href="/loginsignup" class="btn btn-success">Signup</a>
           {% endif %}
           <button type = "button" class = "btn position-relative">
-            <a href="{% url 'cart' %}" class = "fa fa-shopping-cart"></a>
-            <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary">{{cartItems}}</span>
+            <a  href="{% url 'cart' %}" class = "nav-cart fa fa-shopping-cart" ></a>
+            <span class = " position-absolute top-0 start-100 translate-middle badge total">{{cartItems}}</span>
         </button>
           <button type = "button" class = "btn position-relative">
               <i class = "fa fa-search"></i>
@@ -35,17 +36,17 @@
       <div class = "collapse navbar-collapse order-lg-1" id = "navMenu">
           <ul class = "navbar-nav mx-auto text-center">
               <li class = "nav-item px-2 py-2">
-                  <a class = "nav-link text-uppercase text-dark" href = "{% url 'store'%}">home</a>
+                  <a class = "nav-link text-uppercase " href = "{% url 'store'%}">home</a>
               </li>
               <li class = "nav-item px-2 py-2">
-                  <a class = "nav-link text-uppercase text-dark" href = "{% url 'sell' %}">List your item</a>
+                  <a class = "nav-link text-uppercase " href = "{% url 'sell' %}">List your item</a>
               </li>
               
               <li class = "nav-item px-2 py-2">
-                  <a class = "nav-link text-uppercase text-dark" href = "#about">About us</a>
+                  <a class = "nav-link text-uppercase " href = "#about">About us</a>
               </li>
               <li class = "nav-item px-2 py-2">
-                  <a class = "nav-link text-uppercase text-dark" href = "#blogs">Blogs</a>
+                  <a class = "nav-link text-uppercase " href = "#blogs">Blogs</a>
               </li>
               </ul>
       </div>
