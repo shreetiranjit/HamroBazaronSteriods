@@ -1,5 +1,6 @@
 .preview{
-    border: 1px solid black;
+    border: 1px solid rgb(0, 255, 68);
+    border-radius: 10px;
 }
 .preview > img {
   width: 100%;
@@ -8,4 +9,9 @@
 #filePreview{
   height: fit-content;
   width: fit-content;
+}
+
+.text-body{
+  text-decoration: none;
+  color: white;
 }

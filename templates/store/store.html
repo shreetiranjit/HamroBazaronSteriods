@@ -13,58 +13,42 @@
       <div class="row">
         {% for product in products %}
         <div class="col-md-4">
-          <div class="block product no-border z-depth-2-top z-depth-2--hover">
+           <div class="product-card ">
+          <div class="product-tumb">
+            <img src="/{{ product.image }}" />
+          </div>
+          <div class="product-details">
             
-            <div class="block-image">
-              <a href="">
-            
-                <img src="/{{ product.image }}" />
-                
-              </a>
-            
-            </div>
-            <div class="block-body text-center">
-              <h3 class="heading ">
-                <a href="#"> {{product.name}} </a>
-              </h3>
-              <p class="product-description">{{product.description}}</p>
-              <p class="product-description">{{product.wallet_address}}</p>  
-              <p class="product-description">{{product.pickup_address}}</p>    
+            <h4 ><a class = "h4" href=""> {{product.name}}</a></h4>
+            <p class="pd" >{{product.description}}</p>
+            <p>Wallet Address:</p>
+            <span class="product-catagory">{{product.wallet_address}}</span>
+            <div class="product-bottom-details">
+              <div class="product-wad">
+                <button class = "send" value="Connect" onclick="Connect()">
+                  <i class="paperplane fa fa-paper-plane"></i>
+                  Send a tip</button>
               </div>
-              <div class="product-buttons mt-4">
-                <div class="row align-items-center">
-                  <div class="col-4">
-                    <button
-                      type="button"
-                      class="btn-icon"
-
-                      data-original-title="Favorite"
-                    >
-                      <i class="fa fa-heart"></i>
-                    </button>
-                  </div>
-
-                  <div class="col-8">
-                     <button
-                        data-product={{product.id}}
-                        data-action="add"
-                        class="btn btn-primary mt-3 update-cart"
-                        style="border-radius: 20px; background-color: rgb(3, 48, 3)"
-                      >
-                    <i class="fa fa-shopping-cart"></i>
-                    </button>
-                    
-                  </div>
-                </div>
+              <div class="product-links">
+                <button
+                data-product={{product.id}}
+                data-action="add"
+                class="btn btn-primary mt-3 update-cart"
+                style="border-radius: 20px; background-color: rgb(0, 39, 0)"
+              >
+            <i class="cart fa fa-shopping-cart"></i>
+            </button>
               </div>
             </div>
           </div>
+        </div>
         </div>
         {% endfor %}
       </div>
     </div>
   </div>
 </section>
+{% include 'Footer/footer.html'%}
 
 
 {% endblock content %}
