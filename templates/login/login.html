@@ -4,7 +4,7 @@
 <div class="container" id="container">
   <div class="form-container sign-up-container">
     <div id="errorMsg"></div>
-    <form action="" id = "form" method="POST" name="signup">
+    <form action="" id="form" method="POST" name="signup">
       {% csrf_token %}
       <h1>Create Account</h1>
       <span>or use your email for registration</span>
@@ -26,19 +26,25 @@
         id="cpasswordd"
       />
       <div id="cpwErrorMsg"></div>
-      <button type = "submit" value ="register">Sign Up</button>
+      <button type="submit" value="register">Sign Up</button>
     </form>
   </div>
   <div class="form-container sign-in-container">
-    <div id="errorMsg"></div>
+    
+    
     <form action="#" method="POST">
       {% csrf_token %}
       <h1>Sign in</h1>
       <span>or use your account</span>
       <input type="text" placeholder="Name" name="username" />
       <input type="password" placeholder="Password" name="password1" />
-      <a href="#">Forgot your password?</a>
+      <div id="pwErrorMsg">
+        {% if error == 1 %}
+        <p>Username or Password is wrong</p>
+        {% endif %}
+      </div>
       <button>Sign In</button>
+      
     </form>
   </div>
 
@@ -51,7 +57,7 @@
       </div>
       <div class="overlap-panel overlap-right">
         <h1>Hello, Friend!</h1>
-        <p>Enter your details and start the journey </p>
+        <p>Enter your details and start the journey</p>
         <button class="ghost" id="signUp">Sign Up</button>
       </div>
     </div>
