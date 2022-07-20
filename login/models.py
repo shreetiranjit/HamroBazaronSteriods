@@ -4,9 +4,10 @@ from django.forms import CharField
 
 # Create your models here.
 
-class signup(models.Model):
+class customUser(models.Model):
+    userId = models.AutoField(auto_created=True, primary_key=True)
     name = models.CharField(max_length=32, null = False)
-    email = models.EmailField(max_length=80 , null =False)
+    email = models.EmailField(max_length=80 , null =False, unique=True)
     password = models.CharField(max_length=32, null = False)
     cpassword = models.CharField(max_length=32, null = False, default= "null")
 

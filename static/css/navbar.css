@@ -17,10 +17,10 @@
     font-family: var(--lg-font);
 }
 .nav-link:active{
-    color: rgb(0, 123, 64);
+    color: rgb(255, 0, 0);
 }
 .nav-link:hover{
-    color: rgb(17, 255, 0);
+    background-color: #666;
 }
 .nav-item{
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);

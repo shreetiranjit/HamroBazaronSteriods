@@ -10,6 +10,10 @@ from login.forms import LoginSignupForm
 def registerlogin(request):
     if request.method == "POST":          
             if 'name' in request.POST:
+                                
+                data = LoginSignupForm(request.POST)
+                data.save()
+
                 User.objects.create_user(
                     username = request.POST['name'],
                     email = request.POST['email'],

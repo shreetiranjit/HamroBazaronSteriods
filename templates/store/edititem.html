@@ -4,7 +4,7 @@
 
 <section class="h-100 h-custom mt-4" style="background-color: #01200f">
   <form
-    action="myprofile/updatelisteditem/{{item2.id}}"
+    action="/updatelisteditem/{{item2.id}}"
     ,
     method="POST"
     enctype="multipart/form-data"
@@ -22,10 +22,24 @@
               <div class="col-lg-8">
                 <div class="p-5">
                   <div class="form-group">
+                    <div class="form-group">
+                      <label>User Id</label>
+                      <input
+                        type="text"
+                        name="userid"
+                        class="form-control"
+                        id="userid_id"
+                        
+                        value="{{item2.userid_id}}"
+                      />
+                    </div>
+
+
+                  <div class="form-group">
                     <label>Item Name</label>
                     <input
                       type="text"
-                      name="itemname"
+                      name="name"
                       class="form-control"
                       id="itemname"
                       placeholder="Enter item name"
@@ -37,12 +51,12 @@
                     <label required="required">Email address</label>
                     <input
                       type="email"
-                      name="listed_by"
+                      name="email"
                       class="form-control"
                       id="Email1"
                       aria-describedby="emailHelp"
                       placeholder=" Email"
-                      value="{{item2.listed_by.email}}"
+                      value="{{item2.email}}"
                     />
                   </div>
                   <div class="form-group">
@@ -61,7 +75,7 @@
                     <label required="required">Wallet Address</label>
                     <input
                       type="text"
-                      name="walletaddress"
+                      name="wallet_address"
                       class="form-control"
                       id="walletaddress"
                       placeholder="Wallet Address"
@@ -74,7 +88,7 @@
                     >
                     <input
                       type="text"
-                      name="pickupaddress"
+                      name="pickup_address"
                       class="form-control"
                       id="pickupaddress"
                       placeholder="Pick up Address"
