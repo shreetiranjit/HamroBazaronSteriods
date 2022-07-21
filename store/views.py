@@ -68,6 +68,8 @@ def updateItem(request):
 
     customer = request.user
     product = Product.objects.get(id = productId)
+    product.is_reserved = True
+    product.save()
     try:
        order = Order.objects.get(customer=customer)
        print("uCart gotten")

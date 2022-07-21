@@ -1,7 +1,4 @@
-
-
-
- .product-card {
+.product-card {
      
     position: relative;
     box-shadow: 0 2px 7px #dfdfdf;
@@ -18,6 +15,8 @@
 .paperplane{
     color: white;
 }
+
+
 
 .badge {
     position: absolute;
@@ -115,5 +114,12 @@
 .product-links a:hover {
     color: #013923;
 }  
-
+.text-reserved{
+    margin-top: 1rem;
+}
+@media (max-width: 1200px) {
+    .product-catagory{
+        word-break: break-all;
+    }
+  }
 

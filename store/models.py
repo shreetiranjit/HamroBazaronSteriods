@@ -17,6 +17,7 @@ class Product(models.Model):
     wallet_address = models.CharField(max_length= 42 , null = True)
     pickup_address = models.CharField(max_length= 200, null = False)
     description = models.CharField(max_length= 200,null= False )
+    is_reserved = models.BooleanField(default=False)
     def __str__(self):
         return self.name
 

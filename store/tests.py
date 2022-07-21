@@ -5,42 +5,42 @@ from django.urls import reverse, resolve
 from store.views import *
 from login.models import customUser
 
-# # Create your tests here.
+# URL TESTING.
 
 
-# class TestUrls(SimpleTestCase):
-#     def test_cart_url(self):
-#         url = reverse(cart)
-#         print(url)
-#         self.assertEquals(resolve(url).func , cart)
+class TestUrls(SimpleTestCase):
+    def test_cart_url(self):
+        url = reverse(cart)
+        print(url)
+        self.assertEquals(resolve(url).func , cart)
 
-#     def test_store_url(self):
-#         url = reverse(store)
-#         print(url)
-#         self.assertEquals(resolve(url).func , store)
-
-
-#     def test_checkout_url(self):
-#         url = reverse(checkout)
-#         print(url)
-#         self.assertEquals(resolve(url).func , checkout)
-
-#     def test_updateitem_url(self):
-#         url = reverse(updateItem)
-#         print(url)
-#         self.assertEquals(resolve(url).func , updateItem)
-
-#     def test_sell_url(self):
-#         url = reverse(sell)
-#         print(url)
-#         self.assertEquals(resolve(url).func , sell)
-
-#     def test_logout_url(self):
-#         url = reverse(fn_logout)
-#         print(url)
-#         self.assertEquals(resolve(url).func , fn_logout)
+    def test_store_url(self):
+        url = reverse(store)
+        print(url)
+        self.assertEquals(resolve(url).func , store)
 
 
+    def test_checkout_url(self):
+        url = reverse(checkout)
+        print(url)
+        self.assertEquals(resolve(url).func , checkout)
+
+    def test_updateitem_url(self):
+        url = reverse(updateItem)
+        print(url)
+        self.assertEquals(resolve(url).func , updateItem)
+
+    def test_sell_url(self):
+        url = reverse(sell)
+        print(url)
+        self.assertEquals(resolve(url).func , sell)
+
+    def test_logout_url(self):
+        url = reverse(fn_logout)
+        print(url)
+        self.assertEquals(resolve(url).func , fn_logout)
+
+# VIEW TESTING.
 class TestViews(TestCase):
     databases= "__all__"
     def test_index(self):

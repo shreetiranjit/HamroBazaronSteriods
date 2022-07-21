@@ -21,15 +21,20 @@
             
             <h4 ><a class = "h4" href=""> {{product.name}}</a></h4>
             <p class="pd" >{{product.description}}</p>
-            <p>Wallet Address:</p>
+            <p >Wallet Address:</p>
             <span class="product-catagory">{{product.wallet_address}}</span>
             <div class="product-bottom-details">
               <div class="product-wad">
-                <button class = "send" value="Connect" onclick="Connect()">
+                <button id="connect-button" class = "send" >
                   <i class="paperplane fa fa-paper-plane"></i>
-                  Send a tip</button>
+                   Send tip</button>
+                  
               </div>
+              
               <div class="product-links">
+                {% if product.is_reserved %}
+                <h5 class ="text-reserved"> Reserved </h5>
+                {% else %}
                 <button
                 data-product={{product.id}}
                 data-action="add"
@@ -38,6 +43,7 @@
               >
             <i class="cart fa fa-shopping-cart"></i>
             </button>
+            {% endif %}
               </div>
             </div>
           </div>
