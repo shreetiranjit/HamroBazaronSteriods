@@ -22,7 +22,7 @@ def store(request):
         cartItems = order.get_cart_items
         curUser = request.user
         email = curUser.email
-        cusUser = customUser.objects.get(email= email) 
+        cusUser = CustomUser.objects.get(email= email) 
         uId = cusUser.userId
         print(uId)
         prods = Product.objects.exclude(userid_id =uId)
@@ -68,6 +68,7 @@ def updateItem(request):
 
     customer = request.user
     product = Product.objects.get(id = productId)
+    product.reserved_by = request.user.username
     product.is_reserved = True
     product.save()
     try:
@@ -94,6 +95,7 @@ def delete_cartitem(request, product_id):
 def delete_listeditem(request, id):
     item2= Product.objects.get( id = id )
     item2.delete()
+    
     return redirect("/myprofile")
 
 @login_required(login_url= "/")
@@ -120,7 +122,7 @@ def update_listeditem(request, id):
 def sell(request): 
     curUser = request.user
     email = curUser.email 
-    cusUser = customUser.objects.get(email= email) 
+    cusUser = CustomUser.objects.get(email= email) 
     uId = cusUser.userId
     if request.method == "POST" :
         pro = Product(
@@ -142,7 +144,7 @@ def myprofile(request):
     if request.user.is_authenticated:
         curUser = request.user
         email = curUser.email
-        cusUser = customUser.objects.get(email= email) 
+        cusUser = CustomUser.objects.get(email= email) 
         uId = cusUser.userId
         productlist = Product.objects.filter(userid_id = uId )
         print(productlist)

@@ -1,22 +1,29 @@
+
 .product-card {
-     
     position: relative;
     box-shadow: 0 2px 7px #dfdfdf;
     margin: 50px auto;
     background: #ffffff;
 }
-.send{
+.send {
     border: none;
     background: rgb(0, 35, 0);
     color: #dfdfdf;
-    margin-top: 17px;
+    margin-top: 22px;
     border-radius: 10px;
 }
-.paperplane{
+
+.paperplane {
     color: white;
 }
-
-
+.row-list:active{
+    color: green
+}
+.row-list{
+    
+    font-weight: 600;
+    font-size: large;
+}
 
 .badge {
     position: absolute;
@@ -36,7 +43,7 @@
     justify-content: center;
     height: 200px;
     padding: 50px;
-    background: #d2f9e2;
+    background: #d1fde4;
 }
 
 .product-tumb img {
@@ -114,9 +121,11 @@
 .product-links a:hover {
     color: #013923;
 }  
-.text-reserved{
+.text-reserved {
     margin-top: 1rem;
 }
+
+
 @media (max-width: 1200px) {
     .product-catagory{
         word-break: break-all;

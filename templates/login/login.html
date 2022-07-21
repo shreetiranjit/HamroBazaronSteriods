@@ -35,7 +35,6 @@
     <form action="#" method="POST">
       {% csrf_token %}
       <h1>Sign in</h1>
-      <span>or use your account</span>
       <input type="text" placeholder="Name" name="username" />
       <input type="password" placeholder="Password" name="password1" />
       <div id="pwErrorMsg">
@@ -51,13 +50,13 @@
   <div class="overlap-container">
     <div class="overlap">
       <div class="overlap-panel overlap-left">
-        <h1>Welcome Back!</h1>
-        <p>To keep connected please login</p>
+        <h2>Welcome Back to HamroBazarOnSteroids!</h2>
+        <p>To explore the community please login</p>
         <button class="ghost" id="signIn">Sign In</button>
       </div>
       <div class="overlap-panel overlap-right">
-        <h1>Hello, Friend!</h1>
-        <p>Enter your details and start the journey</p>
+        <h2>Welcome to HamroBazarOnSteroids</h2>
+        <p>Please enter your details to join us</p>
         <button class="ghost" id="signUp">Sign Up</button>
       </div>
     </div>

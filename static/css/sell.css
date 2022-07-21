@@ -1,6 +1,7 @@
 .preview{
-    border: 1px solid rgb(0, 255, 68);
+    border: 1px solid rgb(60, 60, 3);
     border-radius: 10px;
+    
 }
 .preview > img {
   width: 100%;
@@ -14,4 +15,17 @@
 .text-body{
   text-decoration: none;
   color: white;
+}
+
+#nameErrorMsg, #emailErrorMsg, #descErrorMsg, #pickErrorMsg {
+  color:red;
+  text-align: center;
+  font-size: 12px;
+  padding-bottom: 20px;
+}
+
+.a , .mr-2{
+  font-size: large;
+  font-weight: 400;
+  color: rgb(1, 25, 1);
 }

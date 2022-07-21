@@ -4,16 +4,26 @@
 
 <header id="header">
  
-
+ 
   <img src="{% static 'images/bg.png' %}" style="max-width: 100%; height: auto" alt="">
+  
 </header>
+
+
 <section id="collection" class="py-5">
+  <div class = "row g-0">
+    <div class = "row1 d-flex flex-wrap justify-content-center mt-5 filter-button-group">
+        <button type = "button" class = "row-list btn m-2 text-dark active-filter-btn" data-filter = "*">All</button>
+        <button type = "button" class = "row-list btn m-2 text-dark" data-filter = ".best">Best Sellers</button>
+        <button type = "button" class = "row-list btn m-2 text-dark" data-filter = ".feat">Featured</button>
+        <button type = "button" class = "row-list btn m-2 text-dark" data-filter = ".new">New Arrival</button>
+    </div>
   <div class="container">
-    <div class="shop-default shop-cards shop-tech">
+    <div class="shop-cards ">
       <div class="row">
         {% for product in products %}
-        <div class="col-md-4">
-           <div class="product-card ">
+        <div class="a col-md-4">
+          <div class="product-card ">
           <div class="product-tumb">
             <img src="/{{ product.image }}" />
           </div>
@@ -21,14 +31,17 @@
             
             <h4 ><a class = "h4" href=""> {{product.name}}</a></h4>
             <p class="pd" >{{product.description}}</p>
-            <p >Wallet Address:</p>
-            <span class="product-catagory">{{product.wallet_address}}</span>
+            <p >Listed by: {{product.email}}</p>
+            <p >Wallet Address: 
+              <span class="product-catagory">{{product.wallet_address}}</span>
+            </p>
+            
             <div class="product-bottom-details">
               <div class="product-wad">
                 <button id="connect-button" class = "send" >
                   <i class="paperplane fa fa-paper-plane"></i>
                    Send tip</button>
-                  
+              
               </div>
               
               <div class="product-links">

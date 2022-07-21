@@ -1,10 +1,10 @@
 from unittest.util import _MAX_LENGTH
 from django.db import models
-from django.forms import CharField
+
 
 # Create your models here.
 
-class customUser(models.Model):
+class CustomUser(models.Model):
     userId = models.AutoField(auto_created=True, primary_key=True)
     name = models.CharField(max_length=32, null = False)
     email = models.EmailField(max_length=80 , null =False, unique=True)

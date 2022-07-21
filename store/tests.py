@@ -45,7 +45,7 @@ class TestViews(TestCase):
     databases= "__all__"
     def test_index(self):
 
-        cusUser =  customUser.objects.create(name='test123', password="test123")
+        cusUser =  CustomUser.objects.create(name='test123', password="test123")
         
         user = User.objects.create(username='test123')
         user.set_password('test123')
@@ -66,7 +66,7 @@ class TestViews(TestCase):
    
 
     def test_delete(self):
-        cusUser =  customUser.objects.create(name='test123', password="test123")
+        cusUser =  CustomUser.objects.create(name='test123', password="test123")
         client = Client()
         c = Product.objects.create(
             userid = cusUser,
@@ -83,7 +83,7 @@ class TestViews(TestCase):
         user.set_password('test123')
         user.save()
         
-        cusUser =  customUser.objects.create(name='test123', password="test123")
+        cusUser =  CustomUser.objects.create(name='test123', password="test123")
         client = Client()
         c_product = Product.objects.create(
             userid = cusUser,
@@ -114,7 +114,7 @@ class TestViews(TestCase):
         user.set_password('test123')
         user.save()
         
-        cusUser =  customUser.objects.create(name='test1233', password="test123")
+        cusUser =  CustomUser.objects.create(name='test1233', password="test123")
         client = Client()
         logged_in = client.login(username="test1233", password="test123")
         c_order = Order.objects.create(
@@ -133,7 +133,7 @@ class TestViews(TestCase):
         user.set_password('test123')
         user.save()
         
-        cusUser =  customUser.objects.create(name='test1233', password="test123")
+        cusUser =  CustomUser.objects.create(name='test1233', password="test123")
         client = Client()
         logged_in = client.login(username="test1233", password="test123")
         c_product = Product.objects.create(
@@ -153,7 +153,7 @@ class TestViews(TestCase):
         user.set_password('test123')
         user.save()
         
-        cusUser =  customUser.objects.create(name='test1233', password="test123")
+        cusUser =  CustomUser.objects.create(name='test1233', password="test123")
         client = Client()
         logged_in = client.login(username="test1233", password="test123")
         c_product = Product.objects.create(
@@ -181,7 +181,7 @@ class TestViews(TestCase):
         user.set_password('test123')
         user.save()
         
-        cusUser =  customUser.objects.create(name='test123', password="test123")
+        cusUser =  CustomUser.objects.create(name='test123', password="test123")
         client = Client()
         logged_in = client.login(username="test123", password="test123")
 
