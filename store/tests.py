@@ -7,7 +7,6 @@ from login.models import CustomUser
 
 # URL TESTING.
 
-
 class TestUrls(SimpleTestCase):
     def test_cart_url(self):
         url = reverse(cart)

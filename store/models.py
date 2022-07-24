@@ -1,6 +1,7 @@
 from distutils.command.upload import upload
 from email.headerregistry import Address
 from email.policy import default
+from tkinter import CASCADE
 from unittest import TextTestRunner
 from django.db import models
 from django.contrib.auth.models import User
@@ -25,35 +26,35 @@ class Product(models.Model):
     def lister_mail(self):
         return (self.email.email)
 
-class Order(models.Model):
-    customer = models.ForeignKey(User, on_delete = models.SET_NULL ,null = True , blank = True)
-    date_ordered = models.DateTimeField(auto_now_add = True)
-    complete = models.BooleanField(default = False)
-    transaction_id = models.CharField(max_length = 100 , null = True)
+# class Order(models.Model):
+#     customer = models.ForeignKey(User, on_delete = models.SET_NULL ,null = True , blank = True)
+#     date_ordered = models.DateTimeField(auto_now_add = True)
+#     complete = models.BooleanField(default = False)
+#     transaction_id = models.CharField(max_length = 100 , null = True)
 
-    def __str__(self):
-        return str(self.id)  
+#     def __str__(self):
+#         return str(self.id)  
     
-    @property 
-    def get_cart_items(self):
-        print("get cart")
-        orderitems = self.orderitem_set.all() 
-        print("get cart orderitems : ", orderitems)
-        # total = sum([item.one_quantity for item in orderitems])
-        totalEg = 0
-        for i in orderitems:
-            totalEg += i.one_quantity 
-        # print("Total: ",total)
-        return totalEg
+#     @property 
+#     def get_cart_items(self):
+#         print("get cart")
+#         orderitems = self.orderitem_set.all() 
+#         print("get cart orderitems : ", orderitems)
+#         # total = sum([item.one_quantity for item in orderitems])
+#         totalEg = 0
+#         for i in orderitems:
+#             totalEg += i.one_quantity 
+#         # print("Total: ",total)
+#         return totalEg
 
-class OrderItem(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE ,null= True)
-    order = models.ForeignKey(Order, unique=True, on_delete= models.CASCADE, null = True)
-    one_quantity = models.IntegerField(default = 1, null = True, blank = True)
-    date_added = models.DateTimeField(auto_now_add=True) 
+# class OrderItem(models.Model):
+#     product = models.ForeignKey(Product, on_delete=models.SET_NULL ,null= True)
+#     order = models.ForeignKey(Order,unique= True, on_delete= models.SET_NULL, null = True)
+#     one_quantity = models.IntegerField(default = 1, null = True, blank = True)
+#     date_added = models.DateTimeField(auto_now_add=True) 
 
-    def __str__(self):
-        return str(self.product.name)
+#     def __str__(self):
+#         return str(self.product.name)
     
 
 
