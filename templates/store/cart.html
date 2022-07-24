@@ -56,12 +56,12 @@
 
                           <div class="clearfix">
                             <button type="button" class="cancelbtn">
-                              <a href="{% url 'cart'  %}">
+                              <a class = "text" href="{% url 'cart'  %}">
                                 Cancel
                                </a>
                             </button>
                             <button type="button" class="deletebtn">
-                              <a href="{% url 'deleteListedItem'  item.product.id %}">
+                              <a class = "text" href="{% url 'deleteListedItem'  item.product.id %}">
                                 <i
                                 data-product="{{item.product.id}}"
                               >

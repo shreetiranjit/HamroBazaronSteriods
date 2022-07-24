@@ -89,6 +89,10 @@ def updateItem(request):
 def delete_cartitem(request, product_id):
     item1= OrderItem.objects.get( product_id = product_id )
     item1.delete()
+    prod = Product.objects.get(id=product_id)
+    prod.is_reserved= False
+    prod.reserved_by = ""
+    prod.save()
     return redirect("/cart")
 
 @login_required(login_url= "/")
