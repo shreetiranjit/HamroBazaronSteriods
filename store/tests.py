@@ -9,9 +9,9 @@ from login.models import CustomUser
 
 class TestUrls(SimpleTestCase):
     def test_cart_url(self):
-        url = reverse(cart)
+        url = reverse(reserve, args=[1])
         print(url)
-        self.assertEquals(resolve(url).func , cart)
+        self.assertEquals(resolve(url).func , reserve)
 
     def test_store_url(self):
         url = reverse(store)
@@ -19,10 +19,10 @@ class TestUrls(SimpleTestCase):
         self.assertEquals(resolve(url).func , store)
 
 
-    def test_checkout_url(self):
-        url = reverse(checkout)
+    def test_reverse_url(self):
+        url = reverse(delete_listeditem)
         print(url)
-        self.assertEquals(resolve(url).func , checkout)
+        self.assertEquals(resolve(url).func , delete_listeditem)
 
     def test_updateitem_url(self):
         url = reverse(updateItem)

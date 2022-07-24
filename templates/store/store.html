@@ -70,16 +70,13 @@
               
               <div class="product-links">
                 {% if product.is_reserved %}
-                <h5 class ="text-reserved"> Reserved </h5>
+                <h5 class ="text-reserved"> Reserved  by {{product.reserved_by}}</h5>
                 {% else %}
-                <button
-                data-product={{product.id}}
-                data-action="add"
-                class="btn btn-primary mt-3 update_cart"
-                style="border-radius: 20px; background-color: rgb(0, 39, 0)"
-                >
-                <i class="cart fa fa-shopping-cart"></i>
+                <a href="/reserve/{{product.id}}">
+                <button class="btn btn-primary mt-3" style="border-radius: 20px; background-color: rgb(0, 39, 0)" >
+                RESERVE
                 </button>
+              </a>
             {% endif %}
               </div>
             </div>

@@ -1,0 +1,40 @@
+{% extends 'store/main.html'%}
+
+{% block title %}
+Edit profile
+{% endblock  %}
+
+{% block content%}
+<section class="pageinfocard1">
+    <div class="container  h-100  py-5">
+      <div class="row d-flex justify-content-center align-items-center h-100 ">
+        <div class="col col-md-9 col-lg-7 col-xl-5">
+          <div class="card outer-card edit-baksa">
+            <div class="card-body p-4">
+              <div class="d-flex text-black">
+  
+                <div class="flex-grow-1 ms-3 wrapper-rap-text">
+                  <form action="" method="POST" class="form">
+                    {% csrf_token %}
+                    <div>
+                        <input class='form-control ' type="text" name="username" placeholder="username" name="username"
+                          value="{{request.user.username}}" disabled>
+                      </div>
+                    <div>
+                      <input class=' form-control ' type="email" name="email" placeholder="email" name="email"
+                        value="{{request.user.email}}">
+                    </div>
+
+  
+                    <button class='btn btn-primary mt-3 ' type="submit">Save</button>
+                    <button class='btn btn-danger mt-3 '> <a href="/myprofile" class="text-light"> Cancel</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+{% endblock %}
