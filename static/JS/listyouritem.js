@@ -1,10 +1,10 @@
-var sname = document.getElementById("itemname").value 
-var email = document.getElementById("Email1").value
-var desc = document.getElementById("Description").value
-var pickaddress = document.getElementById("pickupaddress").value
-const form = document.getElementById("form1")
 
+const form = document.getElementById("form1")
 form.addEventListener('submit',(e) => {
+	var sname = document.getElementById("itemname").value 
+	var email = document.getElementById("Email1").value
+	var desc = document.getElementById("Description").value
+	var pickaddress = document.getElementById("pickupaddress").value
 	
 	if (email == "") {
 		document.getElementById("emailErrorMsg").innerHTML = "Email field cannot be empty"
@@ -20,7 +20,7 @@ form.addEventListener('submit',(e) => {
 		e.preventDefault()
 	}
 	else {
-		alert("Successfully signed up");
+		alert("Successfully Listed the item");
 		location.href = "/myprofile" ; 
 	}
 })

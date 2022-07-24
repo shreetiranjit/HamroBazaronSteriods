@@ -2,32 +2,56 @@
 {% load static %}
 {% block content %}
 
-<header id="header">
+<header id="header" class="container row-lg-12 d-flex pageinfo">
+  <div class="col-lg-6 vh-100 mt-3 col-md-12  ">
+    <h1>
+      The purpose - 
+
+      where I start - 
+   is the idea of 
  
+      use. It is not
+    
+      recycling, it's
  
-  <img src="{% static 'images/bg.png' %}" style="max-width: 100%; height: auto" alt="">
+    reuse.
+
+    </h1>
+  </div>
+  <div class="col-lg-6 col-md-12 vh-100 mt-4">
+    <h4>
+      <p>
+        We have made sustainability our habit. It's not something that we just strive for - we live by this principle every day.
+      </p>
+      <p>
+        While most of the things about the creative process will be forgotten, the exellence of our product and services will be remembered.
+
+      </p>
+    </h4>
+  </div>
+ 
   
 </header>
 
 
-<section id="collection" class="py-5">
+<section id="collection" class="collectionss">
   <div class = "row g-0">
     <div class = "row1 d-flex flex-wrap justify-content-center mt-5 filter-button-group">
-        <button type = "button" class = "row-list btn m-2 text-dark active-filter-btn" data-filter = "*">All</button>
-        <button type = "button" class = "row-list btn m-2 text-dark" data-filter = ".best">Best Sellers</button>
-        <button type = "button" class = "row-list btn m-2 text-dark" data-filter = ".feat">Featured</button>
-        <button type = "button" class = "row-list btn m-2 text-dark" data-filter = ".new">New Arrival</button>
+        <a href="#footer"><button type = "button" class = "row-list btn m-2  coll-btn" data-filter = "*"><i class="fa fa-globe"></i> All</button></a>
+        <a href="#footer"><button type = "button" class = "row-list btn m-2 coll-btn" data-filter = ".best"><i class="fa fa-dollar"></i>Best Sellers</button></a>
+        <a href="#footer"><button type = "button" class = "row-list btn m-2 coll-btn" data-filter = ".feat"><i class="fa fa-star"></i>Featured</button></a>
+        <a href="#footer"><button type = "button" class = "row-list btn m-2 coll-btn" data-filter = ".new"><i class="fa fa-plus"></i>New Arrival</button></a>
     </div>
   <div class="container">
     <div class="shop-cards ">
-      <div class="row">
+      <div class="row " id="footer">
         {% for product in products %}
-        <div class="a col-md-4">
-          <div class="product-card ">
+        <div class="a col-md-4 ">
+          <div class="product-card pageinfocard carduh ">
           <div class="product-tumb">
             <img src="/{{ product.image }}" />
           </div>
-          <div class="product-details">
+          <div class="product-details text-dark">
             
             <h4 ><a class = "h4" href=""> {{product.name}}</a></h4>
             <p class="pd" >{{product.description}}</p>

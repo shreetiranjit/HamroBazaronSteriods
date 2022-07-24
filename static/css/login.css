@@ -47,8 +47,8 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #002812;
-	background-color: #002812;
+	border: 1px solid #ffffff;
+	background-color: #15482c;
 	color: #ffffff;
 	font-size: 12px;
 	font-weight: bold;
@@ -162,8 +162,8 @@ input {
 }
 
 .overlap {
-	background: #002812;
-	background: -webkit-linear-gradient(to right,#002812, #00441f);
+	background: #066c34;
+	background: -webkit-linear-gradient(to right,#279358, #00441f);
 	background: linear-gradient(to right, #002812, #00441f);
 	background-repeat: no-repeat;
 	background-size: cover;

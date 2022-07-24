@@ -23,13 +23,13 @@
                   <div
                     class="row mb-4 d-flex justify-content-between align-items-center"
                   >
-                    <div class="col-md-2 col-lg-2 col-xl-2">
+                    <!-- <div class="col-md-2 col-lg-2 col-xl-2">
                       <img
                         src="/{{ product.image }}"
                         class="img-fluid rounded-3"
                         alt=""
                       />
-                    </div>
+                    </div> -->
                     <div class="col-md-3 col-lg-3 col-xl-3">
                       <h6 class="text-black mb-0">{{item.product.name}}</h6>
                     </div>
@@ -45,7 +45,35 @@
                     </div>
 
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a
+                      <button  class = "butt" onclick="document.getElementById('id01').style.display='block'"> <i class="d fa fa-trash"></i></button>
+
+                    <div id="id01" class="modal">
+                      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                      <form class="modal-content" >
+                        <div class="container">
+                          <h1>Delete Account</h1>
+                          <p>Are you sure you want to delete {{item.product.name}}?</p>
+
+                          <div class="clearfix">
+                            <button type="button" class="cancelbtn">
+                              <a href="{% url 'cart'  %}">
+                                Cancel
+                               </a>
+                            </button>
+                            <button type="button" class="deletebtn">
+                              <a href="{% url 'deleteListedItem'  item.product.id %}">
+                                <i
+                                data-product="{{item.product.id}}"
+                              >
+                              </i>
+                              
+                              Delete</button>
+                             </a>
+                          </div>
+                        </div>
+                      </form> 
+                     </div>
+                      <!-- <a
                         href="{% url 'deleteCartItem' item.product.id  %}"
                         class="text-muted"
                       >
@@ -54,7 +82,7 @@
                           class="fa fa-times "
                         >
                         </i>
-                      </a>
+                      </a> -->
                     </div>
                   </div>
                   {% endfor %}

@@ -107,14 +107,26 @@ def edit_listeditem(request, id):
 @login_required(login_url= "/")
 def update_listeditem(request, id):
     item2= Product.objects.get( id = id )
-    print(request.POST)
-    form = ProductForm(request.POST, request.FILES, instance= item2)
-    if(form.is_valid()):
-        form.save()
-    else:
-        print(form.errors.as_data)
+
+    if request.method=="POST":
+        form = ProductForm({
+        'userid':request.user.id,
+        'description':request.POST['description'],
+        'name': request.POST['name'],
+        'email':request.POST['email'],
+        'wallet_address':request.POST['wallet_address'],
+        'pickup_address':request.POST['pickup_address'],
+        'reserved_by': 'No one'
+         },
+        request.FILES, instance= item2)
+        if form.is_valid():
+            form.save()
+            return redirect("/myprofile")
+
+        else:
+            print(form.errors.as_data)
+            return redirect("/myprofile")
     
-    return redirect("/myprofile")
     
 
 
@@ -127,7 +139,7 @@ def sell(request):
     if request.method == "POST" :
         pro = Product(
             name = request.POST['name'],
-            email = request.user , 
+            email = request.POST['email'] , 
             userid_id = uId,
             description = request.POST['description'],
             wallet_address =  request.POST['wallet_address'],

@@ -25,6 +25,7 @@
 }
 
 .a , .mr-2{
+  text-align: left;
   font-size: large;
   font-weight: 400;
   color: rgb(1, 25, 1);

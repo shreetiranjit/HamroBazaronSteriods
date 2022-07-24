@@ -18,7 +18,7 @@ class Product(models.Model):
     pickup_address = models.CharField(max_length= 200, null = False)
     description = models.CharField(max_length= 200,null= False )
     is_reserved = models.BooleanField(default=False )
-    reserved_by = models.CharField(null=True , max_length=100)
+    reserved_by = models.CharField(default='No one', max_length=100)
     def __str__(self):
         return self.name
 

@@ -3,7 +3,7 @@ import json
 from django.test import Client, SimpleTestCase, TestCase
 from django.urls import reverse, resolve
 from store.views import *
-from login.models import customUser
+from login.models import CustomUser
 
 # URL TESTING.
 

@@ -48,46 +48,46 @@
                   </div>
                   <div class=" block-body1 text-center">
                     <h3 class="heading ">
-                      <a class="heading1" href="#"> {{product.name}} </a>
+                       {{product.name}} 
                     </h3>
 
+                    <p class="mt-3">{{product.description}}</p>
+                    
                     
 
-                    <button  type= "button" class="delete btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                      <i class="d fa fa-trash"></i>
-                    </button>
+                    
+                    <button  class = "butt mt-3" onclick="document.getElementById('id01').style.display='block'"> <i class="d fa fa-trash"></i></button>
+
+                    <div id="id01" class="modal">
+                      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                      <form class="modal-content" >
+                        <div class="container">
+                          <h1>Delete Account</h1>
+                          <p>Are you sure you want to delete {{product.name}}</p>
+
+                          <div class="clearfix">
+                            <a href="{% url 'myprofile'  %}">
+                            <button type="button" class="cancelbtn">
+                                Cancel
+                              </button>
+                            </a>
+                            <a href="{% url 'deleteListedItem' product.id %}">
+                            <button type="button" class="deletebtn">
+                              Delete
+                            </button>
+                            </a>
+                          </div>
+                        </div>
+                      </form> 
+                     </div>
 
                     <button class="edit btn btn-primary">
                       <a href="editlisteditem/{{product.id}}">
                         <i class="d fa fa-edit"></i>
-                      </a>
+                      </a> 
 
                     </button>
-                    
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            Are you sure you want to delete this item?
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <a href="{% url 'deleteListedItem' product.id %}">
-                              Delete </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    
-                  
-                    
+
                     {% if product.is_reserved %}
                     <h3>Reserved by {{product.reserved_by}}</h3>
                     {% endif %}

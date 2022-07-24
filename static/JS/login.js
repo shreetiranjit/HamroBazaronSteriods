@@ -1,15 +1,14 @@
 
-var cname = document.getElementById("namee").value 
-
-var email = document.getElementById("eemail").value
-
-var password = document.getElementById("passwordd").value
-var cpassword = document.getElementById("cpasswordd").value
 var emailRegex = new RegExp("^(.+)@(.+)$")
-var passRegex = new RegExp("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$");
 const form = document.getElementById("form")
 
 form.addEventListener('submit',(e) => {
+
+	var cname = document.getElementById("namee").value 
+    var email = document.getElementById("eemail").value
+    var password = document.getElementById("passwordd").value
+    var cpassword = document.getElementById("cpasswordd").value
+
 	if ( cname == "" ) {
 		document.getElementById("nameErrorMsg").innerHTML = "Name field cannot be empty"
 		e.preventDefault()
@@ -33,9 +32,12 @@ form.addEventListener('submit',(e) => {
 		e.preventDefault()
 	}
 
-	else if (!passRegex.test(password)){
-		document.getElementById("pwErrorMsg").innerHTML = "Passwords must be minimum of 8 characters at least 1 alphabet and 1 number"
+	else if (password.length < 8){
+		document.getElementById("pwErrorMsg").innerHTML = "Passwords must be minimum of 8 characters"
 		e.preventDefault()	
+	}
+	else if (password.length > 8){
+		document.getElementById("pwErrorMsg").innerHTML = " asd"
 	}
 	else if (!emailRegex.test(email)){
 		document.getElementById("emailErrorMsg").innerHTML = "Please enter the valid email"
