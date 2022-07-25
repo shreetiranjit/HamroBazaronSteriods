@@ -29,6 +29,31 @@ def store(request):
         }
         return render(request, 'store/store.html',context)
 
+@login_required(login_url= "/")
+def sell(request): 
+    curUser = request.user
+    email = curUser.email 
+    cusUser = CustomUser.objects.get(email= email) 
+    uId = cusUser.userId
+    if request.method == "POST" :
+        r = Product.objects.filter(reserved_by = request.user.username)
+        rescount = 0
+        for res in r:
+            rescount +=1
+        pro = Product(
+            name = request.POST['name'],
+            email = request.POST['email'] , 
+            userid_id = uId,
+            description = request.POST['description'],
+            wallet_address =  request.POST['wallet_address'],
+            pickup_address = request.POST['pickup_address'],
+            image = request.FILES.get("image"),
+        )
+        pro.save()
+        return redirect('/sell' )
+    else:
+        return render(request, 'store/sell.html', {'rescount':rescount})
+
 
 @login_required(login_url= "/")
 def delete_listeditem(request, id):
@@ -97,31 +122,6 @@ def edit_profile(request):
         return redirect('myprofile')
     return render(request,'profile/editprofile.html')
 
-@login_required(login_url= "/")
-def sell(request): 
-    curUser = request.user
-    email = curUser.email 
-    cusUser = CustomUser.objects.get(email= email) 
-    uId = cusUser.userId
-    if request.method == "POST" :
-        r = Product.objects.filter(reserved_by = request.user.username)
-        rescount = 0
-        for res in r:
-            rescount +=1
-        pro = Product(
-            name = request.POST['name'],
-            email = request.POST['email'] , 
-            userid_id = uId,
-            description = request.POST['description'],
-            wallet_address =  request.POST['wallet_address'],
-            pickup_address = request.POST['pickup_address'],
-            image = request.FILES.get("image"),
-        )
-        pro.save()
-        return redirect('/sell' )
-    else:
-        return render(request, 'store/sell.html', {'rescount':rescount})
-
 @login_required(login_url='/')
 def myprofile(request): 
     r = Product.objects.filter(reserved_by = request.user.username)
@@ -140,6 +140,10 @@ def myprofile(request):
         context = {'products':productlist, 'uId':uId, 'reserves':revPro , 'rescount': rescount}
         print(context)
         return render(request, 'store/myProfile.html', context)
+
+
+
+
 
 @login_required(login_url='/')
 def fn_logout(request):
